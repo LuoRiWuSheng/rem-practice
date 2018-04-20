@@ -1,0 +1,208 @@
+@function px2rem($px) {
+    $rem: 37.5px;
+    @return ($px / $rem) +rem;
+}
+html {
+    background: #f8f8f8;
+}
+.header {
+    width: 100%;
+    height: px2rem(40px);
+    background: red;
+    padding-left: px2rem(23px);
+    // ipad屏幕768px 这就适配pC端
+    @media (min-width: 769px) {
+        position: relative;
+        height: px2rem(100px); 
+        line-height: px2rem(100px); 
+        padding-left: 0;     
+    }
+    // ul元素
+    .header-content {
+        height: 100%;
+        // 每一个li
+        .header-item {
+            float: left;
+            color: #ffcdce;
+            font-size: px2rem(16px);
+            margin-left: px2rem(20px);
+            line-height: px2rem(40px);
+            
+            @media screen and (min-width: 769px) {
+               
+                width: px2rem(140px);
+                height: inherit;
+                line-height: inherit;
+                padding-left: px2rem(0);
+                margin-right: px2rem(100px);
+                font-size: px2rem(64px);
+            }
+            
+            &:nth-child(2) {
+                color: #FFF;
+                font-size: px2rem(17px);
+                @media screen and (min-width: 769px) {
+                    height: inherit;
+                    line-height: inherit;
+                 
+                    font-size: px2rem(64px);
+                }
+            }
+        }
+        @media screen and (min-width: 769px) {
+            // 父元素relative，子元素改变位置，并改变移动中心点
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+           
+        }
+    }
+}
+.banner-content {
+    position: relative;
+    
+    .banner {
+        display: block;
+        width: 100%;
+        height: px2rem(190px);
+        @media screen and(min-width: 769px) {
+            width: 50%;
+            height: px2rem(400px);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            padding: px2rem(20px);
+            background: #FFF;
+            transform: translate(-50%,-50%);
+            background-size: contain;
+        }
+    }
+    
+    .banner-title {
+        position: absolute;
+        left: px2rem(15px);
+        bottom: px2rem(15px);
+        font-size: px2rem(16px);
+        color: #FFF;
+        @media screen and(min-width: 769px) {
+            left: 38%;
+            transform: translate(-50%,-50%);
+           font-size: px2rem(64px);
+        }
+    }
+    @media screen and(min-width: 769px) { 
+        height: px2rem(400px);
+    }
+}
+
+.news-content {
+    position: relative;
+    .news-list {      
+        // 每条li
+        .news-item {
+            // 注意这里： 宽度给了100% 但是下面有15pxpadding ,padding会撑大盒子，但是reset.css已经重置了box-sizing:border-box
+            // 如果没有设置box-sizing:border-box; 是会出现横向滚动条的，可以在浏览器调试一下
+            width: 100%;
+            height: px2rem(90px);
+            padding-left: px2rem(15px);
+            padding-right: px2rem(15px);
+            @media screen and(min-width: 769px) {
+               height: px2rem(180px);
+                
+            }
+        }
+        .news-inner {
+            position: relative;
+            // 形成BFC 解决margin重叠问题
+            overflow: hidden;
+            
+            height: 100%;
+            border-bottom: px2rem(1px) solid #e5e5e5;
+            // 图片
+            .news-img {
+                float: left;
+                display: block;
+                width: px2rem(95px);
+                height: px2rem(70px); 
+                margin-top: px2rem(10px);
+                margin-right: px2rem(15px);
+                @media screen and(min-width: 769px) {
+                    width: px2rem(190px);
+                    height: px2rem(140px);
+                    margin-top: px2rem(20px);
+                    margin-right: px2rem(30px);
+                
+                }
+            }
+            .news-title {
+                color: #404040;
+                font-size: px2rem(17px);
+                margin-top: px2rem(16px);
+                line-height: px2rem(20px);
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+                overflow: hidden;
+                @media screen and(min-width: 769px) {
+                    height: px2rem(70px);
+                    line-height: px2rem(70px);
+                    margin-top: px2rem(32px);
+                    font-size: px2rem(34px);
+                }
+                
+            }
+            .time {
+                // 可以采用绝对定位实现
+                position: absolute;
+                left: px2rem(110px);
+                bottom: px2rem(17px);
+                color: #888;
+                font-size: px2rem(12px);
+                @media screen and(min-width: 769px) {
+                    left: px2rem(220px);
+                }
+            }
+            .num {
+                position: absolute;
+                right: px2rem(4px);
+                bottom: px2rem(17px); 
+                color: #888;
+                font-size: px2rem(12px);
+                // 伪类的好处就是，无论你阅读量这个数字多大，都不会造成重叠的问题
+                &:before {
+                    position: absolute; 
+                    left: px2rem(-20px);
+                    
+                    content: " ";
+                    display: block;
+                   
+                    width: px2rem(16px);
+                    height: px2rem(16px);
+                    background-size: contain;
+                  
+                    background-image: url(./read.png);
+                    background-repeat: no-repeat;
+                    @media screen and(min-width: 769px) {
+                        left: px2rem(-40px);
+                        top: px2rem(6px);
+                         width: px2rem(32px);
+                        height: px2rem(32px);
+                    }
+                }
+                
+                @media screen and(min-width: 769px) {
+                   right: px2rem(80px);
+                }
+            }
+        }
+    }
+    @media screen and(min-width: 769px) {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+        width: 50%;
+    }
+}
+
+// $:nth-child $表示父元素  等同于 .header-item:nth-child(2)

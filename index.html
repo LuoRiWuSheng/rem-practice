@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
+		<title></title>
+		<style type="text/css">
+			html {
+				font-size: 20px;
+			}
+			.box {
+				width: 2rem;
+				height: 2rem ;
+				background: #CCC;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<p>hello rem</p>
+		</div>
+	</body>
+	<script>
+		function getStyle(obj,attr) {
+			if(obj.currentStyle) {
+				return obj.currentStyle[attr];
+			} else {
+				return getComputedStyle(obj,false)[attr];
+			}
+		}
+		
+		var dom = document.getElementsByClassName("box")[0];
+		
+		var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+		
+		
+		var html = document.getElementsByTagName("html")[0];
+		html.style.fontSize = screenWidth / 10 + "px";
+		console.log(screenWidth,getStyle(dom,"width"));
+	</script>
+</html>

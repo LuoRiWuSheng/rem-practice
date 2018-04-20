@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
+		<!--上面单词拼错，控制台将会有灰色的提示-->
+		<title></title>
+		<link rel="stylesheet" href="https://cdn.bootcss.com/minireset.css/0.0.2/minireset.css" />
+		<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="bundle.css" />
+	</head>
+	<body>
+		<div class="header">
+			<ul class="header-content">
+				<li class="header-item">推荐</li>
+				<li class="header-item">娱乐</li>
+				<li class="header-item">新闻</li>
+				<li class="header-item">图片</li>
+				<li class="header-item">财经</li>
+				<li class="header-item">体育</li>
+			</ul>
+		</div>
+		
+		<div class="banner-content">
+			<img class="banner"  src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524198000940&di=95fa14485f1743cde4140289469902b1&imgtype=0&src=http%3A%2F%2Fa.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F58ee3d6d55fbb2fb2394a775434a20a44623dc1e.jpg" alt="" />
+			<p class="banner-title">2017网易时尚跨界盛典</p>
+		</div>
+		
+		<div class="news-content">
+			<ul class="news-list">
+				<li class="news-item">
+					<div class="news-inner">
+						<img class="news-img" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524198000939&di=35b5bd1e42b5f0ef4711e0c09325c904&imgtype=0&src=http%3A%2F%2Fh.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Fd53f8794a4c27d1e45a021a717d5ad6edcc438ca.jpg" alt="" />
+						<p class="news-title">
+							移动web开发适配籍Re秘籍Rem秘籍Re移动weasa
+						</p>
+						<span class="time">1小时前</span>
+						<span class="num">90次</span>
+					</div>
+				</li>
+				<li class="news-item">
+					<div class="news-inner">
+						<img class="news-img" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524198000939&di=35b5bd1e42b5f0ef4711e0c09325c904&imgtype=0&src=http%3A%2F%2Fh.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Fd53f8794a4c27d1e45a021a717d5ad6edcc438ca.jpg" alt="" />
+						<p class="news-title">
+							移动web开发适配籍Re秘籍Rem秘籍Re移动weasa
+						</p>
+						<span class="time">1小时前</span>
+						<span class="num">90次</span>
+					</div>
+				</li>
+				<li class="news-item">
+					<div class="news-inner">
+						<img class="news-img" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524198000939&di=35b5bd1e42b5f0ef4711e0c09325c904&imgtype=0&src=http%3A%2F%2Fh.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Fd53f8794a4c27d1e45a021a717d5ad6edcc438ca.jpg" alt="" />
+						<p class="news-title">
+							移动web开发适配籍Re秘籍Rem秘籍Re移动weasa
+						</p>
+						<span class="time">1小时前</span>
+						<span class="num">90次</span>
+					</div>
+				</li>
+				
+			</ul>
+		</div>
+	</body>
+	<!--<script src="bundle.js"></script>-->
+	<script>
+		
+		
+		window.onload = function() {
+				// 获取htmlDOM元素
+			let htmlDom = document.getElementsByTagName("html")[0];
+			
+			
+			
+			window.addEventListener("resize",(e)=> {
+				// 获取viewport宽度
+				let htmlWidth = document.documentElement.clientWidth || document.body.clientWidth;
+				
+				htmlDom.style.fontSize = htmlWidth / 10 + "px"; 
+			});
+		}
+	</script>
+</html>
